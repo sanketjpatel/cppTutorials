@@ -3,8 +3,6 @@
 
 using namespace std;
 
-//class Polar;
-
 //Complex Numbers in Rectangular and Polar coordinates
 
 //class Rectangular;
