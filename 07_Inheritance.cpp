@@ -24,9 +24,7 @@ class account : virtual public person{
 
 public:
 	account(int code, char* name, float givenPay):
-	person(code, name){
-			pay = givenPay;
-	}
+	person(code, name){	pay = givenPay;	}
 	void display(){ cout << "Pay: " << pay << endl; }
 };
 
