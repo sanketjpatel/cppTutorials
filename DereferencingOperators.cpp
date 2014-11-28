@@ -52,25 +52,25 @@ int sum(Person x){
 	return S;
 }
 
-//int main(){
-//	Person person;
-//
-//	(person.*pSetDetails)(14,45);
-//	cout << "Sum = " << sum(person) << endl;
-//
-//	Person *pperson = &person;
-//	(pperson ->* pSetDetails)(23,34);
-//	cout << "Sum = " << sum(*pperson) << endl;
-//
-//	Person newperson(28,56);
-//	newperson.getDetails();
-//	newperson.setDetails(12, 13);
-//	newperson.getDetails();
-//
-//	Person *pnewperson = &newperson;
-//	(pnewperson ->* pSetDetails)(123,23);
-//	pnewperson -> getDetails();
-//	cout << "Sum = " << sum(*(&newperson)) << endl;
-//
-//	return 0;
-//}
+int main(){
+	Person person;
+
+	(person.*pSetDetails)(14,45);
+	cout << "Sum = " << sum(person) << endl;
+
+	Person *pperson = &person;
+	(pperson ->* pSetDetails)(23,34);
+	cout << "Sum = " << sum(*pperson) << endl;
+
+	Person newperson(28,56);
+	newperson.getDetails();
+	newperson.setDetails(12, 13);
+	newperson.getDetails();
+
+	Person *pnewperson = &newperson;
+	(pnewperson ->* pSetDetails)(123,23);
+	pnewperson -> getDetails();
+	cout << "Sum = " << sum(*(&newperson)) << endl;
+
+	return 0;
+}
