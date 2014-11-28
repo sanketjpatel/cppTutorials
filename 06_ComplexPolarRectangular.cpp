@@ -65,7 +65,7 @@ Rectangular Rectangular :: operator-(Rectangular z){
 class Polar{
 	float r, a;
 public:
-	Polar(){ r = a = 0;	} //Construct a point at origin
+	Polar(){ r = a = 0; } //Construct a point at origin
 
 	Polar(float radius, float angle){ //Construct a point given its radius and angle
 		r = radius;
