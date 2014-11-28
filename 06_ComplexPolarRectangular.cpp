@@ -121,7 +121,7 @@ Polar operator*(Polar point1, Polar point2){
 	return Polar(point1.r*point2.r, point1.a+point2.a);
 }
 
-int main(){
+void ComplexPolarRectangular(){
 	Polar point1 = Polar(Rectangular(-1, 0));
 	Polar point2 = Polar(Rectangular(1, 1));
 	Rectangular point3 = Rectangular(point2) - Rectangular(point1);
@@ -151,6 +151,4 @@ int main(){
 	cout << "\nPoint 5" << endl;
 	Rectangular point5 = point3*3;
 	point5.display();
-
-	return 0;
 }
