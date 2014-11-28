@@ -31,6 +31,7 @@ public:
 	//Declaring and defining an overloaded unary operator
 	Rectangular operator-(){ return Rectangular(-x, -y); }
 	Rectangular operator*(int);
+	friend Rectangular operator*(int, Rectangular);
 };
 
 //Definition
@@ -44,6 +45,10 @@ Rectangular operator*(Rectangular point1, Rectangular point2){
 	float x = (point1.x*point2.x) - (point1.y*point2.y);
 	float y = (point1.x*point2.y) + (point1.y*point2.x);
 	return Rectangular(x,y);
+}
+
+Rectangular operator*(int m, Rectangular point){
+	return Rectangular(m*point.x, m*point.y);
 }
 
 Rectangular Rectangular :: operator*(int m){
