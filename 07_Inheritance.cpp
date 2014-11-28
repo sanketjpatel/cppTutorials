@@ -1,12 +1,13 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 class person{
 	int code;
-	char* name;
+	string name;
 protected:
-	person(int givenCode, char* givenName){
+	person(int givenCode, string givenName){
 		code = givenCode;
 		name = givenName;
 	}
@@ -23,7 +24,7 @@ class account : virtual public person{
 	float pay;
 
 public:
-	account(int code, char* name, float givenPay):
+	account(int code, string name, float givenPay):
 	person(code, name){ pay = givenPay; }
 	void display(){ cout << "Pay: " << pay << endl; }
 };
@@ -32,14 +33,14 @@ class admin : virtual public person{
 	int experience;
 
 public:
-	admin(int code, char* name, int givenExp):
+	admin(int code, string name, int givenExp):
 	person(code, name){ experience = givenExp; }
 	void display(){ cout << "Experience: " << experience << " years" << endl; }
 };
 
 class master : public account, public admin{
 public:
-	master(char* name, int code, int experience, float pay):
+	master(string name, int code, int experience, float pay):
 		person(code, name), account(code, name, pay), admin(code, name, experience)
 	{
 	}
@@ -59,8 +60,8 @@ void Inheritance(){
 	cin >> code;
 
 	cout << "Enter name: ";
-	char* name;
-	cin >> name;
+	string name;
+	getline(cin, name);
 
 	cout << "Enter the amount of experience in years: ";
 	int experience;
