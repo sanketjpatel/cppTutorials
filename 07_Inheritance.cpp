@@ -6,8 +6,10 @@ class person{
 	int code;
 	char* name;
 protected:
-	void setCode(int x){ code = x; }
-	void setName(char* givenName){ name = givenName; }
+	person(int givenCode, char* givenName){
+		code = givenCode;
+		name = givenName;
+	}
 	void getCode(){ cout << "Code: " << code << endl; }
 	void getName(){	cout << "Name: " << name << endl; }
 public:
@@ -19,27 +21,29 @@ public:
 
 class account : virtual public person{
 	float pay;
-protected:
-	void setPay(float givenPay){ pay = givenPay; }
+
 public:
+	account(int code, char* name, float givenPay):
+	person(code, name){
+			pay = givenPay;
+	}
 	void display(){ cout << "Pay: " << pay << endl; }
 };
 
 class admin : virtual public person{
 	int experience;
-protected:
-	void setExperience(int givenExp){ experience = givenExp; }
+
 public:
+	admin(int code, char* name, int givenExp):
+	person(code, name){ experience = givenExp; }
 	void display(){ cout << "Experience: " << experience << " years" << endl; }
 };
 
 class master : public account, public admin{
 public:
-	master(char* name, int code, int experience, float pay){
-		setName(name);
-		setCode(code);
-		setExperience(experience);
-		setPay(pay);
+	master(char* name, int code, int experience, float pay):
+		person(code, name), account(code, name, pay), admin(code, name, experience)
+	{
 	}
 	void display(){
 		cout << "\n";
