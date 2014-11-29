@@ -1,7 +1,7 @@
 #C++ Tutorials
 
 The files contain code that explain various features of the C++ language. This may be used as a reference for designing code patterns.
-##The contents are as follows:
+###The contents are as follows:
 1. Basic structure of a program
 2. How to define a function
 3. How to define classes and create objects
