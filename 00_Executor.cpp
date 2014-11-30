@@ -7,7 +7,8 @@ using namespace std;
 //void ConstructorDestructor();
 //void DereferencingOperators();
 //void ComplexPolarRectangular();
-void Inheritance();
+//void Inheritance();
+void ThisPointer();
 
 int main(){
 //	HelloWorld();
@@ -16,7 +17,8 @@ int main(){
 //	ConstructorDestructor();
 //	DereferencingOperators();
 //	ComplexPolarRectangular();
-	Inheritance();
+//	Inheritance();
+	ThisPointer();
 
 	return 0;
 }

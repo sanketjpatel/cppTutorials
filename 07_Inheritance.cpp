@@ -54,7 +54,6 @@ public:
 
 void Inheritance(){
 
-
 	cout << "Enter code: ";
 	int code;
 	cin >> code;
