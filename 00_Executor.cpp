@@ -8,7 +8,8 @@ using namespace std;
 //void DereferencingOperators();
 //void ComplexPolarRectangular();
 //void Inheritance();
-void ThisPointer();
+//void ThisPointer();
+void PointersToDerived();
 
 int main(){
 //	HelloWorld();
@@ -18,7 +19,8 @@ int main(){
 //	DereferencingOperators();
 //	ComplexPolarRectangular();
 //	Inheritance();
-	ThisPointer();
+//	ThisPointer();
+	PointersToDerived();
 
 	return 0;
 }
