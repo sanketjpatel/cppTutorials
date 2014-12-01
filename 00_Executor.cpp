@@ -9,7 +9,8 @@ using namespace std;
 //void ComplexPolarRectangular();
 //void Inheritance();
 //void ThisPointer();
-void PointersToDerived();
+//void PointersToDerived();
+void VirtualFunctions();
 
 int main(){
 //	HelloWorld();
@@ -20,7 +21,8 @@ int main(){
 //	ComplexPolarRectangular();
 //	Inheritance();
 //	ThisPointer();
-	PointersToDerived();
+//	PointersToDerived();
+	VirtualFunctions();
 
 	return 0;
 }
