@@ -103,7 +103,7 @@ void VirtualFunctions(){
 	int shapetype;
 
 	for(int i=0; i<n; i++){
-		cout << "\nEnter shape type (1=triangle; 2=rectangle): ";
+		cout << "\nEnter shape type (1=triangle; 2=rectangle; 3=circle; default=triangle): ";
 		cin >> shapetype;
 
 		switch(shapetype){
@@ -124,7 +124,7 @@ void VirtualFunctions(){
 	}
 
 	for (int i = 0; i<n; i++){
-		cout << "\n******* Shape " << i << ": " << shapes[i] <<" *******" << endl;
+		cout << "\n***** Shape " << i+1 << " address: " << shapes[i] <<" *****" << endl;
 		shapes[i] -> display_area();
 		shapes[i] -> display_perimeter();
 	}
