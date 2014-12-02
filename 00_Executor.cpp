@@ -10,7 +10,8 @@ using namespace std;
 //void Inheritance();
 //void ThisPointer();
 //void PointersToDerived();
-void VirtualFunctions();
+//void VirtualFunctions();
+void InputOutput();
 
 int main(){
 //	HelloWorld();
@@ -22,7 +23,8 @@ int main(){
 //	Inheritance();
 //	ThisPointer();
 //	PointersToDerived();
-	VirtualFunctions();
+//	VirtualFunctions();
+	InputOutput();
 
 	return 0;
 }
