@@ -11,7 +11,8 @@ using namespace std;
 //void ThisPointer();
 //void PointersToDerived();
 //void VirtualFunctions();
-void InputOutput();
+//void InputOutput();
+void IOManip();
 
 int main(){
 //	HelloWorld();
@@ -24,7 +25,8 @@ int main(){
 //	ThisPointer();
 //	PointersToDerived();
 //	VirtualFunctions();
-	InputOutput();
+//	InputOutput();
+	IOManip();
 
 	return 0;
 }
