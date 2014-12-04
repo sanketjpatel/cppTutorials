@@ -12,7 +12,8 @@ using namespace std;
 //void PointersToDerived();
 //void VirtualFunctions();
 //void InputOutput();
-void IOManip();
+//void IOManip();
+void FileInteraction();
 
 int main(){
 //	HelloWorld();
@@ -26,7 +27,8 @@ int main(){
 //	PointersToDerived();
 //	VirtualFunctions();
 //	InputOutput();
-	IOManip();
+//	IOManip();
+	FileInteraction();
 
 	return 0;
 }
