@@ -13,7 +13,8 @@ using namespace std;
 //void VirtualFunctions();
 //void InputOutput();
 //void IOManip();
-void FileInteraction();
+//void FileInteraction();
+void Templates();
 
 int main(){
 //	HelloWorld();
@@ -28,7 +29,8 @@ int main(){
 //	VirtualFunctions();
 //	InputOutput();
 //	IOManip();
-	FileInteraction();
+//	FileInteraction();
+	Templates();
 
 	return 0;
 }
