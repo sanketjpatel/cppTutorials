@@ -24,7 +24,7 @@ public:
 	}
 
 	vector(T* a){
-		size = sizeof(a)-1;
+		size = sizeof(a);
 		v = new T[size];
 		for (int i=0; i<size; i++){
 			v[i] = a[i];
@@ -49,15 +49,20 @@ public:
 };
 
 void Templates(){
-	int x[3] = {1, 2, 3};
-	int y[3] = {4, 5, 6};
-	vector <int> v1;
-	vector <int> v2;
-	cout << sizeof(x) << endl;
-	cout << x << endl;
+	char x[3] = {"a"};
+	char y[3] = {4, 5, 6};
+	vector <char> v1;
+	vector <char> v2;
+	cout << "Size of x: " << sizeof(x) << endl;
+	cout << "x: " << x << endl;
+	cout << "x[0]: " << x[0] << endl;
+	cout << "x[1]: " << x[1] << endl;
+	cout << "x[2]: " << x[2] << endl;
 	v1 = x;
 	v2 = y;
+	cout << "\nv1.print()" << endl;
 	v1.print();
+	cout << "\nv2.print()" << endl;
 	v2.print();
-	cout << v1*v2 << endl;
+	cout << "\n\nv1*v2" << v1*v2 << endl;
 }
