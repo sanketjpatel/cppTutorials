@@ -29,7 +29,7 @@ public:
 	}
 
 	vector(T* a, int n){
-		size = n;  //
+		size = n;  // Most of the times you will use this pattern for dealing with arrays
 		cout << "Size: " << size << endl;
 		v = new T[size];
 		for (int i=0; i<size; i++){
@@ -49,7 +49,6 @@ public:
 		T sum = 0;
 		for(int i=0; i<size; i++){
 			sum += (this -> v[i] )*(y.v[i]);
-			cout << this -> v[i] << " " << y.v[i] << " " << sum << endl;
 		}
 		return sum;
 	}
