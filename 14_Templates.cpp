@@ -5,8 +5,9 @@ using namespace std;
 template <class T>
 class vector{
 	T* v;
-	int size;
+
 public:
+	int size;
 	vector(){
 		size = 0;
 		cout << "Size: " << size << endl;
@@ -17,8 +18,9 @@ public:
 	}
 
 	vector(vector &a){
-		size = length(a);
-		// length(a) works only for strings. For other objects, sizeof should be used. In that case, you should know the type of members in the object, and assign values accordingly
+		size = a.size;
+		// length(a) works only for strings. For other objects, sizeof should be used.
+        // In that case, you should know the type of members in the object, and assign values accordingly
 		cout << "Size: " << size << endl;
 		v = new T[size];
 		for (int i=0; i<size; i++){
@@ -26,8 +28,8 @@ public:
 		}
 	}
 
-	vector(T* a){
-		size = sizeof(a);					// If you use a, the address value is passed in which is 4 bytes
+	vector(T* a, int n){
+		size = n;  //
 		cout << "Size: " << size << endl;
 		v = new T[size];
 		for (int i=0; i<size; i++){
@@ -54,30 +56,27 @@ public:
 };
 
 void Templates(){
-	char x[] = {35, 48, 67, 55, 70};
-	char y[] = {'a', 'b', 'e', 'd'};
-	vector <char> v1;
-	vector <char> v2;
+	int x[] = {35, 48, 67, 55, 70, -400};
+	int y[] = {12, 242, 34, 123, 23, 50};
 
-	cout << x << endl;
+	cout << endl << "x: " << x << endl;
+	cout << "&x = " << sizeof(&x) << endl;
+	cout << "Size of x: " << sizeof(x) << endl;
 	cout << x[0] << endl;
 	cout << x[1] << endl;
+	cout << x[2] << endl;
+	cout << x[3] << endl;
+	cout << x[4] << endl;
+	cout << x[5] << endl;
 
-	cout << "Size of x: " << sizeof(x) << endl;
-	cout << "x: " << x << endl;
-	cout << "x[0]: " << x[0] << endl;
-	cout << "x[1]: " << x[1] << endl;
-	cout << "x[2]: " << x[2] << endl;
-	v1 = x;
-	v2 = y;
-
-	cout << "\n\n\nx = " << sizeof(x) << endl;
-	cout << "&x = " << sizeof(&x) << endl;
+	vector<int> v1(x, sizeof(x)/sizeof(x[0]));
+	vector<int> v2(y, sizeof(y)/sizeof(y[0]));
 
 	cout << "\nv1.print()" << endl;
 	v1.print();
 	cout << "\nv2.print()" << endl;
 	v2.print();
-	cout << "\nv2 Print finished!" << endl;
-	cout << "\n\nv1*v2" << v1*v2 << endl;
+
+	cout << "\n\nv1*v2: " << endl;
+	cout << v1*v2 << endl;
 }
