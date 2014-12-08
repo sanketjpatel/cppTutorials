@@ -14,7 +14,8 @@ using namespace std;
 //void InputOutput();
 //void IOManip();
 //void FileInteraction();
-void Templates();
+//void Templates();
+void ExceptionHandling();
 
 int main(){
 //	HelloWorld();
@@ -30,7 +31,8 @@ int main(){
 //	InputOutput();
 //	IOManip();
 //	FileInteraction();
-	Templates();
+//	Templates();
+	ExceptionHandling();
 
 	return 0;
 }
