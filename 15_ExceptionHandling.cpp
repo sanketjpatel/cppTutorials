@@ -6,12 +6,19 @@ void test(int x) throw(char, int, double){
 	if (x==0) throw 'x';
 	else if (x==1) throw x;
 	else if (x==-1) throw 1.0;
-	cout << "End of function block \n";
+	cout << "End of function block \n\n";
 }
+
+/*
+ * On encountering a throw statement, the program leaves the try block
+ * and looks for the corresponding catch block.
+ * When a throw is not caught by any of the catch statements,
+ * the program terminates indicating so.
+ */
 
 void ExceptionHandling(){
 	try{
-		cout << "Testing Throw Restrictions \n";
+		cout << "Testing Throw Restrictions \n\n";
 		cout << "x == 2 \n";
 		test(2);
 		cout << "x == 0 \n";
@@ -31,6 +38,6 @@ void ExceptionHandling(){
 	catch (double d){
 		cout << "Caught a double \n";
 	}
-	cout << "End of try-catch system \n\n";
+	cout << "\nEnd of try-catch system \n\n";
 
 }
