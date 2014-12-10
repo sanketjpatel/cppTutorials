@@ -2,11 +2,13 @@
 #include <vector>
 #include <list>
 #include <map>
+#include <cstdlib>
+#include <string>
 
 using namespace std;
 
 void display( vector<int> &v){
-	for (int i=0; i<v.size(); i++){
+	for (unsigned int i=0; i<v.size(); i++){
 		cout << v[i] << " ";
 	}
 	cout << endl;
@@ -55,6 +57,97 @@ void VectorListMap(){
 
 	// Removing 4th and 5th elements
 	v.erase(v.begin()+3, v.begin()+5);
-	cout << "\n Contents after deletion: " << endl;
+	cout << "\nContents after deletion: " << endl;
 	display(v);
+
+	cout << "\nPress Enter to proceed to Lists";
+	char c;
+	cin.get(c);
+	cin.get(c);
+
+	list <int> list1;
+	list <int> list2(5);
+
+	for (int i=0; i<3; i++){
+		cout << rand() << endl;
+		list1.push_back(rand()/100);
+	}
+
+	list <int> :: iterator p;
+	for (p=list2.begin(); p!=list2.end(); ++p){
+		*p = rand()/100;
+	}
+
+	cout << "List1 \n";
+	display(list1);
+	cout << "List2 \n";
+	display(list2);
+
+	// Add two elements at the ends of list1
+	list1.push_front(100);
+	list1.push_back(200);
+
+	// Remove an element from list2
+	list2.pop_front();
+
+	cout << "Now list1: \n";
+	display(list1);
+	cout << "Now list2: \n";
+	display(list2);
+
+	list <int> listA, listB;
+	listA = list1;
+	listB = list2;
+
+	// Merging two lists (unsorted)
+	list1.merge(list2);
+	cout << "Merged unsorted lists \n";
+	display(list1);
+
+	// Sorting and mergin
+	listA.sort();
+	listB.sort();
+	listA.merge(listB);
+	cout << "Merged sorted lists \n";
+	display(listA);
+
+	// Reversing a list
+	listA.reverse();
+	cout << "Reversed merged list \n";
+	display(listA);
+
+	cout << "\n Press Enter to go to maps";
+	cin.get(c);
+
+	typedef map<string, int> phoneMap;
+	string name;
+	int number;
+	phoneMap phone;
+
+	cout << "Enter three sets of name and number \n";
+
+	for (int i=0; i<3; i++){
+		cout << "Name: ";
+		cin >> name;
+		cout << "Number: ";
+		cin >> number;
+		phone[name] = number;
+	}
+
+	phone["Sanket"] = 123456;
+
+	phone.insert(pair<string, int> ("Pankaj", 14357));
+	int n = phone.size();
+	cout << "\nSize of Map = " << n << endl << endl;
+
+	cout << "List of telephone numbers \n";
+//	phoneMap :: iterator p = phone.begin();
+//	for (p=phone.begin(); p!=phone.end(); p++){
+////		cout << (*p).first() << "\t\t\t" << (*p).second() << "\n";
+//	}
+
+	cout << "\nEnter name: ";
+	cin >> name;
+	number = phone[name];
+	cout << "Number: " << number << endl;
 }
