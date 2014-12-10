@@ -4,6 +4,8 @@
 #include <map>
 #include <cstdlib>
 #include <string>
+#include <algorithm>
+#include <functional>
 
 using namespace std;
 
@@ -70,12 +72,12 @@ void VectorListMap(){
 
 	for (int i=0; i<3; i++){
 		cout << rand() << endl;
-		list1.push_back(rand()/100);
+		list1.push_back(rand()%100);
 	}
 
 	list <int> :: iterator p;
 	for (p=list2.begin(); p!=list2.end(); ++p){
-		*p = rand()/100;
+		*p = rand()%100;
 	}
 
 	cout << "List1 \n";
@@ -141,13 +143,34 @@ void VectorListMap(){
 	cout << "\nSize of Map = " << n << endl << endl;
 
 	cout << "List of telephone numbers \n";
-//	phoneMap :: iterator p = phone.begin();
-//	for (p=phone.begin(); p!=phone.end(); p++){
-////		cout << (*p).first() << "\t\t\t" << (*p).second() << "\n";
-//	}
+	phoneMap :: iterator pMap;
+	for (pMap=phone.begin(); pMap!=phone.end(); pMap++){
+		cout << (*pMap).first << "\t\t\t" << (*pMap).second << "\n";
+	}
 
 	cout << "\nEnter name: ";
 	cin >> name;
 	number = phone[name];
 	cout << "Number: " << number << endl;
+
+	cout << "\nPress Enter to see how Functional Objects work\n";
+	cin.get(c);
+
+	int l[] = {10, 50, 30, 40, 20};
+	int m[] = {70, 90, 60, 80};
+
+	sort(l, l+5, greater<int>());
+	sort(m, m+4);
+
+	for (int i=0; i<5; i++){
+		cout << l[i] << " ";
+	}
+	cout << endl;
+
+	for (int i=0; i<4; i++){
+		cout << m[i] << " ";
+	}
+
+	cout << endl;
+
 }
