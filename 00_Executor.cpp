@@ -15,7 +15,8 @@ using namespace std;
 //void IOManip();
 //void FileInteraction();
 //void Templates();
-void ExceptionHandling();
+//void ExceptionHandling();
+void VectorListMap();
 
 int main(){
 //	HelloWorld();
@@ -32,7 +33,8 @@ int main(){
 //	IOManip();
 //	FileInteraction();
 //	Templates();
-	ExceptionHandling();
+//	ExceptionHandling();
+	VectorListMap();
 
 	return 0;
 }
