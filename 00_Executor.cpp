@@ -16,7 +16,8 @@ using namespace std;
 //void FileInteraction();
 //void Templates();
 //void ExceptionHandling();
-void VectorListMap();
+//void VectorListMap();
+void Strings();
 
 int main(){
 //	HelloWorld();
@@ -34,7 +35,8 @@ int main(){
 //	FileInteraction();
 //	Templates();
 //	ExceptionHandling();
-	VectorListMap();
+//	VectorListMap();
+	Strings();
 
 	return 0;
 }
