@@ -17,7 +17,8 @@ using namespace std;
 //void Templates();
 //void ExceptionHandling();
 //void VectorListMap();
-void Strings();
+//void Strings();
+void CharList();
 
 int main(){
 //	HelloWorld();
@@ -36,7 +37,8 @@ int main(){
 //	Templates();
 //	ExceptionHandling();
 //	VectorListMap();
-	Strings();
+//	Strings();
+	CharList();
 
 	return 0;
 }
