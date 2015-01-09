@@ -41,6 +41,7 @@ void ClassesAndObjects(){
 	Major a;
 	a.setMajor(300, 400);
 	a.changeMajor(a, 4, 7);
+	Major b;
+	b.setMajor(50, 690);
+	a.changeMajor(b, 40, 30);
 }
-
-

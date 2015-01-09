@@ -12,14 +12,10 @@ class Person{
 //Public members
 public:
 	//Constructor with no args
-	Person(){
-		age = 0; weight = 0;
-	}
+	Person(){ age = 0; weight = 0; }
 
 	//Constructor with args
-	Person(int a, int b){
-		age = a; weight = b;
-	}
+	Person(int a, int b){ age = a; weight = b; }
 
 	//Method
 	void setDetails(int a, int b){

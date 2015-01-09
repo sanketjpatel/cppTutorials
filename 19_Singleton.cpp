@@ -1,9 +1,7 @@
 /*
  * Author: Sanket Patel
- * Task: Singleton Pattern (discussed during the skype interview with Jerome Petit)
  *
  * The following is the code for the singleton pattern.
- * The incorrect code written during the interview is commented at the end
  */
 
 #include <iostream>
