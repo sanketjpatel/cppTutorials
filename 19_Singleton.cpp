@@ -1,7 +1,7 @@
 /*
  * Author: Sanket Patel
  *
- * The following is the code for the singleton pattern.
+ * The following is the code for the singleton pattern
  */
 
 #include <iostream>
