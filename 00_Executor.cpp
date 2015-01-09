@@ -18,7 +18,8 @@ using namespace std;
 //void ExceptionHandling();
 //void VectorListMap();
 //void Strings();
-void CharList();
+//void CharList();
+void Singleton();
 
 int main(){
 //	HelloWorld();
@@ -38,7 +39,8 @@ int main(){
 //	ExceptionHandling();
 //	VectorListMap();
 //	Strings();
-	CharList();
+//	CharList();
 
+	Singleton();
 	return 0;
 }
