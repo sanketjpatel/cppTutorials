@@ -1,5 +1,5 @@
-#include "Addition.hpp"
-#include "Multiply.hpp"
+#include "Addition.h"
+#include "Multiply.h"
 
 #include <stdio.h>
 
@@ -14,6 +14,5 @@ int main()
     int z2 = Multiply::twoValues(x,y);
     printf("Multiply Result: %d\n", z2);
 
-    delete corporation;
     return 0;
 }
