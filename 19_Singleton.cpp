@@ -11,17 +11,17 @@ using namespace std;
 class Rectangle{
 private:
     static Rectangle *instance;				// instance should be a pointer to the object
-    Rectangle(){} 							// private constructor
+    Rectangle(){ draw(); } 					// private constructor
     int membervalue = 1;
+    void draw(){ cout << "Rectangle is drawn" << endl;}
 public:
     static Rectangle* getInstance();        // Method returns the pointer to the object
 
     // Add your methods
-    void draw(){ cout << "Rectangle is drawn" << endl;}
-    void setVal(int n){
-    	membervalue = n;
-    	cout << "Value set to " << membervalue << endl;
-    }
+
+    void displayVal(){ cout << "Value is " << membervalue << endl; }
+
+    void setVal(int n){	membervalue = n; }
 };
 
 Rectangle* Rectangle::instance = NULL;
@@ -40,9 +40,10 @@ void Singleton(){
     r1 = Rectangle::getInstance();
     r2 = Rectangle::getInstance();			// Both r1 and r2 point to the same object. More objects cannot be created.
 
-    r1->draw();
-    r2->draw();
-
+    r1->displayVal();
+    r2->displayVal();
     r1->setVal(85);
+    r2->displayVal();
     r2->setVal(34);
+    r1->displayVal();
 }
