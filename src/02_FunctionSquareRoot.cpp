@@ -16,7 +16,6 @@ long double squareroot(long double z){
 }
 
 void FunctionSquareRoot(){
-
 	cout << "Enter a non-negative number: ";
 	int x;
 	cin >> x;

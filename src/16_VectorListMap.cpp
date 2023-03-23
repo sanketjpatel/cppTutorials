@@ -30,7 +30,7 @@ void VectorListMap(){
 
 	// Putting values into the vector
 	int x;
-	cout << "Enter five integer values: ";
+	cout << "Enter five integer values: \n";
 	for (int i=0; i<5; i++){
 		cin >> x;
 		v.push_back(x);
@@ -42,7 +42,7 @@ void VectorListMap(){
 	display(v);
 
 	// Add one more value
-	v.push_back(6.6);
+	v.push_back(6);
 
 	// Display size and contents
 	cout << "\nSize = " << v.size() << endl;
@@ -106,7 +106,7 @@ void VectorListMap(){
 	cout << "Merged unsorted lists \n";
 	display(list1);
 
-	// Sorting and mergin
+	// Sorting and merging
 	listA.sort();
 	listB.sort();
 	listA.merge(listB);

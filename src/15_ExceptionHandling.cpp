@@ -1,12 +1,32 @@
 #include <iostream>
+#include "15_ExceptionHandling.hpp"
 
 using namespace std;
 
-void test(int x) throw(char, int, double){
+void testThrows(int x) {
 	if (x==0) throw 'x';
 	else if (x==1) throw x;
 	else if (x==-1) throw 1.0;
 	cout << "End of function block \n\n";
+}
+
+void tryCatchWithTestThrows(int x) {
+	try{
+		cout << "testing Throw Restrictions \n\n";
+		cout << "x == " << x << endl;
+		testThrows(x);
+		cout << "ENDING TRY\n";
+	}
+	catch(char c){
+		cout << "Caught a character: "<< c << endl;
+	}
+	catch (int m){
+		cout << "Caught an integer: " << m << endl;
+	}
+	catch (double d){
+		cout << "Caught a double: " << d << endl;
+	}
+	cout << "\nEnd of try-catch system \n\n";
 }
 
 /*
@@ -16,28 +36,9 @@ void test(int x) throw(char, int, double){
  * the program terminates indicating so.
  */
 
-void ExceptionHandling(){
-	try{
-		cout << "Testing Throw Restrictions \n\n";
-		cout << "x == 2 \n";
-		test(2);
-		cout << "x == 0 \n";
-		test(0);
-		cout << "x == 1 \n";
-		test(1);
-		cout << "x == -1 \n";
-		test(-1);
-
-	}
-	catch(char c){
-		cout << "Caught a character \n";
-	}
-	catch (int m){
-		cout << "Caught an integer \n";
-	}
-	catch (double d){
-		cout << "Caught a double \n";
-	}
-	cout << "\nEnd of try-catch system \n\n";
-
+void ExceptionHandling() {
+	tryCatchWithTestThrows(2);
+	tryCatchWithTestThrows(0);
+	tryCatchWithTestThrows(1);
+	tryCatchWithTestThrows(-1);
 }

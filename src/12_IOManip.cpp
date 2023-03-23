@@ -18,8 +18,8 @@ ostream & form(ostream & output){
 }
 
 void IOManip(){
-	float amount;
+	double amount;
 	cout << "Enter amount: ";
 	cin >> amount;
-	cout << currency << form << amount;
+	cout << currency << form << amount << endl;
 }

@@ -1,44 +1,37 @@
-/*
- * Author: Sanket Patel
- *
- * The following is the code for the singleton pattern
- */
-
 #include <iostream>
+#include "19_Singleton.hpp"
 
 using namespace std;
 
-class Rectangle{
-private:
-    static Rectangle *instance;				// instance should be a pointer to the object
-    Rectangle(){ draw(); } 					// private constructor
-    int membervalue = 1;
-    void draw(){ cout << "Rectangle is drawn" << endl;}
-public:
-    static Rectangle* getInstance();        // Method returns the pointer to the object
+SingletonRectangle* SingletonRectangle::instance = NULL;
 
-    // Add your methods
+SingletonRectangle::SingletonRectangle() {
+    draw();
+}
+void SingletonRectangle::draw() {
+    cout << "SingletonRectangle is drawn" << endl;
+}
+void SingletonRectangle::displayVal() {
+    cout << "Value is " << membervalue << endl;
+}
+void SingletonRectangle::setVal(int n) {
+    membervalue = n;
+}
 
-    void displayVal(){ cout << "Value is " << membervalue << endl; }
-
-    void setVal(int n){	membervalue = n; }
-};
-
-Rectangle* Rectangle::instance = NULL;
-
-Rectangle* Rectangle::getInstance(){
-    if(instance == NULL){
-    	instance = new Rectangle();
+SingletonRectangle* SingletonRectangle::getInstance(){
+    if (instance == NULL) {
+    	instance = new SingletonRectangle();
+        instance->setVal(1);
     }
     return instance;
 }
 
 void Singleton(){
 
-	// Rectangle r11; 						// Cannot use this expression, as you cannot use the constructor.
-    Rectangle *r1, *r2;
-    r1 = Rectangle::getInstance();
-    r2 = Rectangle::getInstance();			// Both r1 and r2 point to the same object. More objects cannot be created.
+	// SingletonRectangle r11; 						// Cannot use this expression, as you cannot use the constructor.
+    SingletonRectangle *r1, *r2;
+    r1 = SingletonRectangle::getInstance();
+    r2 = SingletonRectangle::getInstance();			// Both r1 and r2 point to the same object. More objects cannot be created.
 
     r1->displayVal();
     r2->displayVal();

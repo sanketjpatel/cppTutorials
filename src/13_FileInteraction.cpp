@@ -1,39 +1,35 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "13_FileInteraction.hpp"
 
 using namespace std;
 
-class Inventory{										// size 20 bytes
-	char name[10];  									// size 10
-	int code;											// size 4, which is absurd
-	float cost;											// size 4
-public:													// 1 pointer per function is stored in the object
-	void getdata(){										// size 1
-		cout << "Enter name: "; cin >> name;
-		cout << "Enter code: "; cin >> code;
-		cout << "Enter cost: "; cin >> cost;
-	}
-	void printdata(){									// size 1
-		cout << setw(10) << name
-			 << setw(10) << code
-			 << setprecision(3) << setw(10) << cost << endl;
-	}
-};
+void Inventory::getdata(){
+	cout << "Enter name: "; cin >> name;
+	cout << "Enter code: "; cin >> code;
+	cout << "Enter cost: "; cin >> cost;
+}
+void Inventory::printdata(){
+	cout << setw(10) << name
+			<< setw(10) << code
+			<< setprecision(3) << setw(10) << cost << endl;
+}
 
 void FileInteraction(){
-	cout.setf(ios::showpoint);							// To display trailing zeros
+	// To display trailing zeros
+	cout.setf(ios::showpoint);
+
+	// use const to avoid deprecation warnings
+	char const * filepath = "resources/Inventory.DAT";
 
 	Inventory item;
-	char const * filepath = "src/SupportFiles/Inventory.DAT";		// use const to avoid deprecation warnings
-
 
 	// The following statement does not create a new file, because the file exists in a different directory
 	// Use if statement as a workaround
 	fstream filestream(filepath, ios::ate | ios::binary | ios::in | ios::out);
 
-	if(!filestream)
-	{
+	if(!filestream) {
 		cout << "File does not exist, creating new file" << endl;
 	    filestream.open(filepath, ios::binary | ios::trunc | ios::out);
 	    filestream.close();

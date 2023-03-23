@@ -17,7 +17,6 @@ using namespace std;
 //Namespace defines a scope for the identifiers that are used in the program. std is the namespace where standard class libraries are defined.
 //This will bring all the identifiers defined in the std to the current global scope.
 
-//main method returns an int value to the operating system. Receiving a 0 means the method executed correctly.
 void HelloWorld(){
 	cout << "Hello World!" << endl;
 }

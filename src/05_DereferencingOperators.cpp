@@ -1,33 +1,24 @@
-#include <iostream>;
+#include <iostream>
+#include "05_DereferencingOperators.hpp"
 
 using namespace std;
 
-// Class declaration
-class Person{
 
-	//Private members
-	int age;
-	int weight;
+Person::Person(){ 
+	age = 0; 
+	weight = 0;
+}
 
-//Public members
-public:
-	//Constructor with no args
-	Person(){ age = 0; weight = 0; }
+//Constructor with args
+Person::Person(int a, int b){ 
+	age = a; 
+	weight = b; 
+}
 
-	//Constructor with args
-	Person(int a, int b){ age = a; weight = b; }
-
-	//Method
-	void setDetails(int a, int b){
-		age = a; weight = b;
-	}
-
-	//Method
-	void getDetails(void);
-
-	//Friend function declaration
-	friend int sum(Person);
-};
+//Method
+void Person::setDetails(int a, int b){
+	age = a; weight = b;
+}
 
 //Member function definition, uses scope resolution operator because defined outside the class
 void Person::getDetails(){
@@ -48,9 +39,17 @@ int sum(Person x){
 	return S;
 }
 
+int sumPointer(Person* px){
+	int Person ::* page = &Person :: age;
+	int Person ::* pweight = &Person :: weight;
+	int S = px->*page + px->*pweight;
+	return S;
+}
+
 void DereferencingOperators(){
 	Person person;
 
+	// Calling the function pointer
 	(person.*pSetDetails)(14,45);
 	cout << "Sum = " << sum(person) << endl;
 

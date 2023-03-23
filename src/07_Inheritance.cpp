@@ -1,56 +1,40 @@
 #include <iostream>
 #include <string>
+#include "07_Inheritance.hpp"
 
 using namespace std;
 
-class person{
-	int code;
-	string name;
-protected:
-	person(int givenCode, string givenName){
-		code = givenCode;
-		name = givenName;
-	}
-	void getCode(){ cout << "Code: " << code << endl; }
-	void getName(){	cout << "Name: " << name << endl; }
-public:
-	void display(){
-		getCode();
-		getName();
-	}
-};
+BasePerson::BasePerson(int givenCode, string givenName){
+	code = givenCode;
+	name = givenName;
+}
+int BasePerson::getCode(){ return code; }
+string BasePerson::getName(){ return name; }
+void BasePerson::display(){
+	cout << "Code: " << getCode() << endl;
+	cout << "Name: " << getName() << endl;
+}
 
-class account : virtual public person{
-	float pay;
+Account::Account(int code, string name, float givenPay):BasePerson(code, name){ pay = givenPay; }
+void Account::display(){ cout << "Pay: " << pay << endl; }
 
-public:
-	account(int code, string name, float givenPay):
-	person(code, name){ pay = givenPay; }
-	void display(){ cout << "Pay: " << pay << endl; }
-};
 
-class admin : virtual public person{
-	int experience;
 
-public:
-	admin(int code, string name, int givenExp):
-	person(code, name){ experience = givenExp; }
-	void display(){ cout << "Experience: " << experience << " years" << endl; }
-};
+Admin::Admin(int code, string name, int givenExp):BasePerson(code, name){ experience = givenExp; }
+void Admin::display(){ cout << "Experience: " << experience << " years" << endl; }
 
-class master : public account, public admin{
-public:
-	master(string name, int code, int experience, float pay):
-		person(code, name), account(code, name, pay), admin(code, name, experience)
-	{
-	}
-	void display(){
-		cout << "\n";
-		person::display();
-		account::display();
-		admin::display();
-	}
-};
+
+Master::Master(string name, int code, int experience, float pay):
+	BasePerson(code, name), 
+	Account(code, name, pay), 
+	Admin(code, name, experience){
+}
+void Master::display(){
+	cout << "\n";
+	BasePerson::display();
+	Account::display();
+	Admin::display();
+}
 
 void Inheritance(){
 
@@ -60,7 +44,7 @@ void Inheritance(){
 
 	cout << "Enter name: ";
 	string name;
-	getline(cin, name);
+	cin >> name;
 
 	cout << "Enter the amount of experience in years: ";
 	int experience;
@@ -70,6 +54,6 @@ void Inheritance(){
 	float pay;
 	cin >> pay;
 
-	master sanket(name, code, experience, pay);
+	Master sanket(name, code, experience, pay);
 	sanket.display();
 }

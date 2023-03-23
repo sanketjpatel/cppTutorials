@@ -1,132 +1,112 @@
 #include <iostream>
 #include <cmath>
+#include "10_VirtualFunctions.hpp"
 
 using namespace std;
 
-class shape{
-protected:
-	double x, y;
-public:
-	/*
-	 * When a method is made virtual,
-	 * the pointer will invoke the method in the derived class.
-	 */
-	virtual void get_data(){};
+void Shape::getData(){};
 
-	// Function overloading
-	void get_data(double primary, double secondary){
-		x = primary;
-		y = secondary;
-	}
+// Function overloading
+void Shape::getData(double primary, double secondary){
+	x = primary;
+	y = secondary;
+}
 
-	virtual void display_area(){};
+void Shape::displayArea(){};
 
-	// This is a pure virtual function. As a result, the class is abstract
-	virtual void display_perimeter() = 0;
+// Destructor is made virtual so that destructor in the derived class is invoked
+Shape::~Shape(){
+	cout << "Destroying Shape with dimensions: " << x << ", " << y << endl;
+}
 
-	// Destructor is made virtual so that destructor in the derived class is invoked
-	virtual ~shape(){
-		cout << "Destroying shape with dimensions: " << x << ", " << y << endl;
-	}
-};
+void Triangle::getData(){
+	double base, height;
+	cout << "Enter base: ";
+	cin >> base;
+	cout << "Enter height: ";
+	cin >> height;
+	Shape::getData(base, height);
+}
 
-class triangle : public shape{
-public:
-	void get_data(){
-		double base, height;
-		cout << "Enter base: ";
-		cin >> base;
-		cout << "Enter height: ";
-		cin >> height;
-		shape::get_data(base, height);
-	}
+void Triangle::displayArea(){
+	cout << "Area of Triangle = " << x*y/2 << endl;
+}
 
-	void display_area(){
-		cout << "Area of triangle = " << x*y/2 << endl;
-	}
+void Triangle::displayPerimeter(){
+	cout << "Insufficient information\n";
+}
 
-	void display_perimeter(){
-		cout << "Insufficient information\n";
-	}
+Triangle::~Triangle(){ cout << "\nDeleted Triangle" << endl; }
 
-	~triangle(){ cout << "\nDeleted triangle" << endl; }
-};
+void Rectangle::getData(){
+	double length, width;
+	cout << "Enter length: ";
+	cin >> length;
+	cout << "Enter width: ";
+	cin >> width;
+	Shape::getData(length, width);
+}
 
-class rectangle : public shape{
-public:
-	void get_data(){
-		double length, width;
-		cout << "Enter length: ";
-		cin >> length;
-		cout << "Enter width: ";
-		cin >> width;
-		shape::get_data(length, width);
-	}
+void Rectangle::displayArea(){
+	cout << "Area of Rectangle = " << x*y << endl;
+}
 
-	void display_area(){
-		cout << "Area of rectangle = " << x*y << endl;
-	}
+void Rectangle::displayPerimeter(){
+	cout << "Perimeter = " << 2*(x+y) << endl;
+}
 
-	void display_perimeter(){
-		cout << "Perimeter = " << 2*(x+y) << endl;
-	}
+Rectangle::~Rectangle(){ cout << "\nDeleted Rectangle" << endl; }
 
-	~rectangle(){ cout << "\nDeleted rectangle" << endl; }
-};
+void Circle::getData(){
+	double radius;
+	cout << "Enter radius: ";
+	cin >> radius;
+	Shape::getData(radius, 0);
+}
 
-class circle : public shape{
-public:
-	void get_data(){
-		double radius;
-		cout << "Enter radius: ";
-		cin >> radius;
-		shape::get_data(radius, 0);
-	}
+void Circle::displayPerimeter(){
+	cout << "Circumference = " << 2*x*M_PI << endl;
+}
 
-	void display_perimeter(){
-		cout << "Circumference = " << 2*x*M_PI << endl;
-	}
+void Circle::displayArea(){
+	cout << "Area of Circle = " << M_PI*x*x << endl;
+}
 
-	void display_area(){
-		cout << "Area of circle = " << M_PI*x*x << endl;
-	}
-
-	~circle(){	cout << "\nDeleted circle" << endl; }
-};
+Circle::~Circle(){	cout << "\nDeleted Circle" << endl; }
 
 void VirtualFunctions(){
 	int n;
-	cout << "Number of shapes: ";
+	cout << "Number of Shapes: ";
 	cin >> n;
 
-	shape* shapes[n];
-	int shapetype;
+	Shape* Shapes[n];
+	int Shapetype;
 
 	for(int i=0; i<n; i++){
-		cout << "\nEnter shape type (1=triangle; 2=rectangle; 3=circle; default=triangle): ";
-		cin >> shapetype;
+		cout << "\nEnter Shape type (1=Triangle; 2=Rectangle; 3=Circle; default=Triangle): ";
+		cin >> Shapetype;
 
-		switch(shapetype){
+		switch(Shapetype){
 		case 1:
-			shapes[i] = new triangle;
+			Shapes[i] = new Triangle;
 			break;
 		case 2:
-			shapes[i] = new rectangle;
+			Shapes[i] = new Rectangle;
 			break;
 		case 3:
-			shapes[i] = new circle;
+			Shapes[i] = new Circle;
 			break;
 		default:
-			shapes[i] = new rectangle;
+			Shapes[i] = new Rectangle;
 		}
 
-		shapes[i] -> get_data();
+		Shapes[i] -> getData();
 	}
 
 	for (int i = 0; i<n; i++){
-		cout << "\n***** Shape " << i+1 << " address: " << shapes[i] <<" *****" << endl;
-		shapes[i] -> display_area();
-		shapes[i] -> display_perimeter();
+		cout << "\n***** Shape " << i+1 << " address: " << Shapes[i] <<" *****" << endl;
+		Shapes[i] -> displayArea();
+		Shapes[i] -> displayPerimeter();
 	}
 
 	for (int i=n-1; i>=0; i--){
@@ -135,6 +115,6 @@ void VirtualFunctions(){
 		 * since the destructor in the base class has been defined as virtual.
 		 * If the destructor in the base class is not virtual, then the derived class destructor is not invoked.
 		 */
-		delete shapes[i];
+		delete Shapes[i];
 	}
 }

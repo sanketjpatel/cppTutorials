@@ -1,19 +1,17 @@
 #include <iostream>
+#include "04_ConstructorDestructor.hpp"
 
 using namespace std;
 
-class tester {
-	static int count;
-public:
-	tester(){
+	tester::tester(){
 		count++;
-		cout << "\nNo. of objects created = " << count;
+		cout << "No. of objects created = " << count << endl;
 	}
-	~tester(){
+	tester::~tester(){
 		count--;
-		cout << "\nNo. of objects left = " << count;
+		cout << "No. of objects left = " << count << endl;
 	}
-};
+
 
 int tester::count;
 
